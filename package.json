@@ -11,6 +11,7 @@
     "IE 11"
   ],
   "scripts": {
+    "postinstall": "npm run build:prod",
     "ng": "ng",
     "start": "ts-node server.ts",
     "dev": "ts-node --require dotenv/config server.ts ",
