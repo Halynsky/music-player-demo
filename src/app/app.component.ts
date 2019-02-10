@@ -25,6 +25,7 @@ export class AppComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit() {
+    this.player.nativeElement.volume = 0.2;
     this.player.nativeElement.addEventListener('ended', this.onTrackEnd.bind(this));
   }
 
@@ -34,8 +35,8 @@ export class AppComponent implements AfterViewInit {
     this.trackIndex < this.playlist.length - 1 ? this.trackIndex++ : this.trackIndex = 0;
     this.player.nativeElement.load();
     this.player.nativeElement.play();
-    console.log(this.trackIndex);
-    console.log(this.player.nativeElement.src)
+    // console.log(this.trackIndex);
+    // console.log(this.player.nativeElement.src)
   }
 
 }
