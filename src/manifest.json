@@ -1,12 +1,22 @@
 {
+  "dir": "ltr",
+  "lang": "en",
   "name": "music-player-demo",
   "short_name": "music-player-demo",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
-  "display": "standalone",
   "scope": "/",
+  "display": "standalone",
   "start_url": "/",
+  "theme_color": "#933EC5",
+  "background_color": "#fafafa",
+  "description": "Hmusic-player-demo",
+  "orientation": "any",
+  "related_applications": [],
+  "prefer_related_applications": false,
   "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32"
+    },
     {
       "src": "assets/icons/pwa/android/icon-72x72.png",
       "sizes": "72x72",
