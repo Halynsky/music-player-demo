@@ -14,7 +14,7 @@ export class AppComponent implements AfterViewInit {
   playlist = [
     'AC DC - High Way To Hell.mp3',
     'ACDC - Back In Black.mp3',
-    'KISS - I Was Made For Lovin\' You.mp3',
+    'KISS - I Was Made For Lovin You.mp3',
     'Metallica - Nothing Else Matters.mp3',
     'Metallica - Memory Remains.mp3',
     'Nightwish - Wishmaster.mp3',
