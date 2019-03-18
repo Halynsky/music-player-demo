@@ -1,6 +1,7 @@
 import * as express from 'express'
 import * as compression from 'compression'
 import * as proxy from 'express-http-proxy'
+import * as cors from 'cors'
 
 const LOCAL_SERVER_PATH = 'http://localhost:3000';
 const STAGING_SERVER_PATH = 'https://musci-player-demo.herokuapp.com';
@@ -44,6 +45,8 @@ app.use(API_PATH, proxy(SERVER_PATH, {
   }
 }));
 
+// tmp
+app.use(cors());
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is started in ${process.env.NODE_ENV} mode at port ${process.env.PORT}` )
