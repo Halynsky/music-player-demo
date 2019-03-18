@@ -30,6 +30,9 @@ switch (process.env.NODE_ENV) {
 
 let app = express();
 
+// tmp
+app.use(cors());
+
 // The number of milliseconds in one day
 let oneDay = 86400000;
 
@@ -44,9 +47,6 @@ app.use(API_PATH, proxy(SERVER_PATH, {
     return API_PATH + require('url').parse(req.url).path;
   }
 }));
-
-// tmp
-app.use(cors());
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is started in ${process.env.NODE_ENV} mode at port ${process.env.PORT}` )
