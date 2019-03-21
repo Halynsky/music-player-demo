@@ -13,7 +13,6 @@ let SERVER_PATH = LOCAL_SERVER_PATH;
 if (process.env.NODE_ENV === undefined) process.env.NODE_ENV = 'development';
 
 switch (process.env.NODE_ENV) {
-
   case 'development':
     SERVER_PATH = LOCAL_SERVER_PATH;
     break;

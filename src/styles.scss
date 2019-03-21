@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  padding: 0px;
+  margin: 0px;
+}
+
+* {
+  box-sizing: border-box;
+  outline-style:none;
+  -webkit-tap-highlight-color:transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+*:focus {
+  outline: none;
+}

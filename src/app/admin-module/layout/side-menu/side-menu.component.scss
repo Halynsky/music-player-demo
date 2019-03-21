@@ -1,0 +1,21 @@
+:host {
+  flex: 0 0 300px;
+}
+
+::ng-deep .ui-panelmenu .ui-menuitem-icon {
+  width: 22px;
+  text-align: center;
+}
+
+::ng-deep body .ui-panelmenu .ui-panelmenu-header > a.ui-state-active {
+  border: 1px solid #007ad9;
+  background-color: #007ad9;
+  color: #ffffff;
+  &:hover {
+    outline: 0 none;
+    border: 1px solid #005b9f;
+    background-color: #005b9f;
+    color: #ffffff;
+  }
+
+}

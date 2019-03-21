@@ -1,0 +1,17 @@
+@import '../../../../colors';
+@import '~@angular/material/theming';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  @include mat-elevation(2);
+  height: 50px;
+  background-color: #20272a;
+  z-index: 100;
+  justify-content: center;
+  color: white;
+  padding: 0px 16px;
+  font-size: 20px;
+}
+
+
