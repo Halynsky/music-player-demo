@@ -1,10 +1,9 @@
 {
-  "name": "warcars",
+  "name": "adelagio-backend",
   "version": "0.1.0",
-  "description": "WarCars Server",
+  "description": "Adelagio Server",
   "keywords": [],
-  "author": "Mad Aliens",
-  "license": "ISC",
+  "author": "Taras Halynskui",
   "engines": {
     "npm": "6.7.0",
     "node": "10.10.0"
@@ -22,14 +21,7 @@
     "migrate:production": "flyway -configFiles=database/flyway-production.conf migrate",
     "test:js": "mocha build/test/**/*.spec.js",
     "test:ts": "ts-mocha typescript/test typescript/test/**/*.spec.ts",
-    "test-http": "ts-node typescript/test/HttpClient.ts",
-    "test-main:ts": "ts-node typescript/test/test.ts",
-    "simulate-ranked-battle-user:1": "ts-node typescript/test/manual/RankedBattleSimulator.ts Taras wc-test-social-id-1",
-    "simulate-ranked-battle-user:2": "ts-node typescript/test/manual/RankedBattleSimulator.ts Adilet wc-test-social-id-2",
-    "simulate-tournament-request-user:1": "ts-node typescript/test/manual/TournamentRequestSimulator.ts Taras wc-test-social-id-1 true",
-    "simulate-tournament-request-user:2": "ts-node typescript/test/manual/TournamentRequestSimulator.ts Adilet wc-test-social-id-2 false",
-    "simulate-socket-user:1": "ts-node typescript/test/manual/SocketSimulator.ts Taras wc-test-social-id-1",
-    "simulate-admin-request:1": "ts-node typescript/test/manual/AdminRequest.ts admin"
+    "test-main:ts": "ts-node typescript/test/test.ts"
   },
   "dependencies": {
     "array-flatten": "^2.1.2",

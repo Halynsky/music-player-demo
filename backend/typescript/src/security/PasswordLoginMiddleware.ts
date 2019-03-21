@@ -29,22 +29,13 @@ export default class PasswordLoginMiddleware extends BaseMiddleware {
         res: express.Response,
         next: express.NextFunction
     ) {
-        passport.authenticate('local',
+        passport.authenticate('custom',
             (err, user, info) => {
                 if (err) return next(err);
                 if (!user) return res.sendStatus(UNAUTHORIZED);
 
               // Destroy other session of User if it exist
               this.sessionRepository.deleteOtherSessions(user.id, req.sessionID);
-
-                let memoryStore: MemoryStore = (req as any).sessionStore;
-                memoryStore.all((err, session) => {
-                    if (err) return next(err);
-                    let sessionId = Object.keys(session)[0];
-                    if (sessionId && session[sessionId].passport.user == user.id) {
-                        memoryStore.destroy(sessionId)
-                    }
-                });
 
                 req.logIn(user, (err) => {
                     if (err) return next(err);

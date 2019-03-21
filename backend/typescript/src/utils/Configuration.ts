@@ -17,7 +17,7 @@ export default class Configuration {
                 appenders: {
                     file: {
                         type: 'file',
-                        filename: 'logs/warcars.log',
+                        filename: 'logs/adelagio.log',
                         maxLogSize: 10 * 1024 * 1024, // = 10Mb
                         numBackups: 5, // keep five backup files
                         compress: true, // compress the backups
@@ -35,7 +35,7 @@ export default class Configuration {
                 },
                 categories: {
                     default: { appenders: ['out'], level: process.env.LOG_LEVEL || 'info' },
-                    warcars: { appenders: ['out'], level: process.env.LOG_LEVEL || 'info' }
+                    adelagio: { appenders: ['out'], level: process.env.LOG_LEVEL || 'info' }
                 }
             }
         );

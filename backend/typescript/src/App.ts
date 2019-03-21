@@ -1,11 +1,9 @@
 import "reflect-metadata";
 import * as bodyParser from 'body-parser';
-import { Container } from 'inversify';
 import { InversifyExpressServer } from 'inversify-express-utils';
 import * as express from 'express';
 import * as morgan from 'morgan';
 import * as expressWs from 'express-ws';
-import { buildProviderModule } from "inversify-binding-decorators";
 import { logger } from "./utils/Util";
 import * as passport from 'passport';
 import * as session from 'express-session';
@@ -18,32 +16,22 @@ import {
 } from "./utils/Properties";
 import * as swagger from "swagger-express-ts";
 import { CustomStrategy } from 'passport-custom';
-
-// create Ioc Container
-export const container = new Container({ defaultScope: "Singleton", autoBindInjectable: true });
-import getDecorators from "inversify-inject-decorators";
-export const { lazyInject } = getDecorators(container, false);
-
-import './models';
-import './controllers';
 import { ErrorHandler } from "./utils/ErrorHandler";
-
-container.load(buildProviderModule());
+import Configuration from "./utils/Configuration";
+import { container } from "./utils/ContainerConfig";
 
 // bind dependencies
 container.bind<express.RequestHandler>('Morgan').toConstantValue(morgan('combined'));
 
-const errorHandler = container.get<ErrorHandler>(ErrorHandler);
-
 // get dependencies
-
+const errorHandler = container.get<ErrorHandler>(ErrorHandler);
+const configuration = container.get<Configuration>(Configuration);
 
 (async () => {
 
     let inversifyExpressServer = new InversifyExpressServer(container);
 
     inversifyExpressServer.setConfig(async (app: expressWs.Application) => {
-
 
         const sessionParser = session(SESSION_OPTIONS);
         app.use(bodyParser.json());
@@ -70,7 +58,7 @@ const errorHandler = container.get<ErrorHandler>(ErrorHandler);
             {
                 definition : {
                     info : {
-                        title : "Warcars Api" ,
+                        title : "Adelagio Api" ,
                         version : "0.1"
                     },
                     responses: {
@@ -95,11 +83,12 @@ const errorHandler = container.get<ErrorHandler>(ErrorHandler);
     });
 
     let server = inversifyExpressServer.build();
+
     // run server
     server.listen(process.env.PORT, () => {
-        logger.info("Server is started in " + process.env.NODE_ENV + " mode");
-        logger.info('Server listening on port ' + process.env.PORT + '!');
-        logger.info('Swagger documentation is served at => ' + SWAGGER_PATH);
+        logger.info(`Server is started in ${process.env.NODE_ENV} mode`);
+        logger.info(`Server listening on port ${process.env.PORT} !`);
+        logger.info(`Swagger documentation is served at => ${SWAGGER_PATH}`);
     });
 
 })();

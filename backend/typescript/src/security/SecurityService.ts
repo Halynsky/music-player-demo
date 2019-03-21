@@ -52,11 +52,18 @@ export default class SecurityService {
         (req, done) => {
           let credentials: Credentials = req.body as Credentials;
           this.userRepository.findByEmail(credentials.username).then(user => {
-              bcrypt.compare(credentials.password, user.password, function (err, res) {
-                if (err) return done(err);
-                if (res) return done(null, user);
-                else return done(null, false);
-              });
+              // bcrypt.compare(credentials.password, user.password, function (err, res) {
+              //   if (err) return done(err);
+              //   if (res) return done(null, user);
+              //   else return done(null, false);
+              // });
+
+              if (user.password == credentials.password) {
+                  return done(null, user);
+              } else {
+                  return done(null, false);
+              }
+
             },
             error => {
               logger.error(error);

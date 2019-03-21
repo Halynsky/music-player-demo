@@ -29,7 +29,7 @@ export default class SecurityController {
         path: "/authorize",
         summary: "Authorize User in to the game server with GameCenter/GooglePlay/Editor token or PhoneId ",
         parameters: {
-            body: {description: "Credentials used for authorization", required: true, model: "UserAuthorization"}
+            body: {description: "Credentials used for authorization", required: true, model: "Credentials"}
         },
         responses: {
             200: { description: "Success", type: SwaggerDefinitionConstant.Response.Type.OBJECT, model: "Profile" }

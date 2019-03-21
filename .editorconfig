@@ -11,7 +11,10 @@ trim_trailing_whitespace = true
 [*.html]
 indent_size = 2
 
-[*.ts]
+[backend/**.ts]
+indent_size = 4
+
+[frontend/**.ts]
 indent_size = 2
 
 [*.scss]

@@ -13,7 +13,8 @@ create table users
 		constraint users_pkey
 			primary key,
 	social_id varchar(256) not null,
-	name varchar(32) not null,
+	email varchar(32) not null,
+    password varchar(64) not null,
 	registration_date timestamp default timezone('utc'::text, now()),
 	role varchar(16) default 'USER'::character varying
 )
@@ -29,7 +30,7 @@ create table tracks
 		constraint tracks_pkey
 			primary key,
 	name varchar(256) not null,
-	artist varchar(256) not null,
+	artist varchar(256) not null
 )
 ;
 

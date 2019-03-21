@@ -6,7 +6,7 @@ import { provide } from "inversify-binding-decorators";
 @provide(TYPES.PgService)
 export default class PgService {
 
-    private readonly APPLICATION_NAME = "Warcars game server";
+    private readonly APPLICATION_NAME = "Adelagio game server";
     private readonly DEFAULT_MAX_POOL_SIZE = 15;
     private readonly DEFAULT_MIN_POOL_SIZE = 10;
     private readonly DEFAULT_CONNECTION_IDLE_TIMEOUT = 5000;
